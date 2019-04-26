@@ -1,3 +1,4 @@
-import datetime
-cur_date = datetime.datetime.now()[1]
-print(cur_date)
+from datetime import date
+
+cur_date = date.today()
+print(cur_date.year)
