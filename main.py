@@ -3,7 +3,7 @@ import math
 import time
 
 CUR_DATE = date.today()
-print(CUR_DATE.year)
+# print(CUR_DATE.year)
 
 
 def decimal_year_to_date(decimal_year):
@@ -22,8 +22,9 @@ def find_date(todays_date, progress):
     """Find a date according to XKCD 1017."""
     return_date = math.exp((20.3444 * (progress ** 3)) + 3) - math.exp(3)
     if return_date < 2000:
-        return decimal_year_to_date(todays_date.year - return_date)
-    return return_date
+        my_date = decimal_year_to_date(todays_date.year - return_date).date()
+        return my_date.strftime("%B %d %Y")
+    return str(round(return_date)) + " years ago"
 
 
 i = 0
