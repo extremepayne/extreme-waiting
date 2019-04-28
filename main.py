@@ -1,6 +1,7 @@
 from datetime import date, datetime, timedelta
 import math
 import time
+import sys
 
 CUR_DATE = date.today()
 # print(CUR_DATE.year)
@@ -29,7 +30,9 @@ def find_date(todays_date, progress):
 
 i = 0
 while i <= 1:
-    print(find_date(CUR_DATE, i))
-    time.sleep(0.1)
+    to_p = str(int(i * 100)) + "%     " + find_date(CUR_DATE, i) + "     \r"
+    sys.stdout.write(to_p)
+    sys.stdout.flush()
+    time.sleep(0.3)
     i += 0.01
-input("press enter to exit")
+input("press enter to exit         ")
