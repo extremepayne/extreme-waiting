@@ -1,5 +1,5 @@
 """."""
-facts = {
+facts_ma = {  # Ma stands for millions of years ago
     500000: "500 thousand years ago: Bronze age begins.",
     3400000: "3.4 million years ago: Humans use tools.",
     15000000: "15 million years ago: First hominids",
@@ -15,4 +15,10 @@ multicellular organisms.",
 eukaryotes.",
     3700000000: "3.7 billion years ago: Life begins.",
     13400000000: "13.7 billion years ago: Universe forms.",
+}
+
+facts_bc = {
+    1600: "1600 BC: Shang dynasty begins in China.",
+    1046: "1046 BC: Zhou dynasty begins in China.",
+    221: "221 BC: Han dynasty begins in China.",
 }
