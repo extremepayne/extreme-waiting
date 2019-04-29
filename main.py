@@ -33,7 +33,7 @@ i = 0
 while i <= 1:
     to_p, result, res_type = find_date(CUR_DATE, i)
     if res_type:
-        to_p = str(int(i*100)) +"%       " + to_p + "     \r"
+        to_p = str(int(i * 100)) + "%       " + to_p + "     \r"
         sys.stdout.write(to_p)
         sys.stdout.flush()
         time.sleep(0.03)
@@ -41,10 +41,12 @@ while i <= 1:
     else:
         for key, value in facts.facts.items():
             if key > result:
-                to_p = str(int(i*100)) +"%" + str(value) + "              \r"
+                to_p = (
+                    str(int(i * 100)) + "%" + str(value) + "              \r"
+                )
                 sys.stdout.write(to_p)
                 sys.stdout.flush()
                 break
         time.sleep(0.03)
         i += 0.001
-input("press enter to exit                     ")
+input("press enter to exit                       ")
