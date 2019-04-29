@@ -39,7 +39,7 @@ while i <= 1:
         time.sleep(0.03)
         i += 0.01
     else:
-        if result > 4000:
+        if result > 8000:
             for key, value in facts.facts_ma.items():
                 if key > result:
                     to_p = (
