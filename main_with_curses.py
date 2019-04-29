@@ -19,9 +19,13 @@ def decimal_year_to_date(decimal_year):
 def find_date(todays_date, progress):
     """Find a date according to XKCD 1017."""
     return_date = math.exp((20.3444 * (progress ** 3)) + 3) - math.exp(3)
-    if return_date < todays_date.year:
+    if return_date + 1 < todays_date.year:
         my_date = decimal_year_to_date(todays_date.year - return_date).date()
-        return my_date.strftime("%B %d %Y"), my_date, True
+        if my_date > date(1900, 1, 1):
+            return my_date.strftime("%B\t%d\t%Y"), my_date, True
+        elif my_date > date(1500, 1, 1):
+            return my_date.strftime("%B\t\t%Y"), my_date, True
+        return my_date.strftime("\t\t\t%Y"), my_date, True
     return str(round(return_date)) + " years ago", return_date, False
 
 def ask(prompt, type_=None, min_=None, max_=None, range_=None):
@@ -64,9 +68,10 @@ def ask(prompt, type_=None, min_=None, max_=None, range_=None):
 
 
 
+
 mins = ask("How long are you waiting for? (minutes) ", float, 0)
 secs = mins*60
-wait_time = secs/1000
+wait_time = secs/10000
 CUR_DATE = date.today()
 try:
     stdscr = curses.initscr()
@@ -106,12 +111,12 @@ try:
                         break
                 if not done:
                     to_p = "No facts for this era."
-        stdscr.addstr(6, 5, (str(to_p) + " "*13), curses.A_BOLD)
+        stdscr.addstr(6, 5, (str(to_p) + " "*23), curses.A_BOLD)
         curses.doupdate()
         stdscr.refresh()
-        i+=0.001
+        i+=0.0001
         time.sleep(wait_time)
-    stdscr.addstr(7, 5, 'Press q to close this screen', curses.A_NORMAL)
+    stdscr.addstr(8, 5, 'Press q to close this screen', curses.A_NORMAL)
     while True:
         # stay in this loop till the user presses 'q'
         ch = stdscr.getch()
