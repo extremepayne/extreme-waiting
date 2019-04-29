@@ -39,7 +39,7 @@ while i <= 1:
         time.sleep(0.03)
         i += 0.01
     else:
-        if result > 300000:
+        if result > 4000:
             for key, value in facts.facts_ma.items():
                 if key > result:
                     to_p = (
@@ -51,6 +51,8 @@ while i <= 1:
                     sys.stdout.write(to_p)
                     sys.stdout.flush()
                     break
+            time.sleep(0.03)
+            i += 0.0003
         else:
             year_bc = abs(CUR_DATE.year - result)
             for key, value in facts.facts_bc.items():
@@ -64,6 +66,6 @@ while i <= 1:
                     sys.stdout.write(to_p)
                     sys.stdout.flush()
                     break
-        time.sleep(0.03)
-        i += 0.001
+            time.sleep(0.03)
+            i += 0.0001
 input("press enter to exit                       ")
