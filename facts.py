@@ -1,7 +1,10 @@
 """."""
 facts_ma = {  # Ma stands for millions of years ago
+    19000: "19 thousand years ago: Humans migrate to the Americas.",
+    70000: "70 thousand years ago: First art in South Africa.",
+    315000: "315 thousand years ago: Homo Sapiens appears",
     500000: "500 thousand years ago: Bronze age begins.",
-    3400000: "3.4 million years ago: Humans use tools.",
+    3400000: "3.4 million years ago: Stone age begins.",
     15000000: "15 million years ago: First hominids",
     65000000: "65 million years ago: Non-avain dinosaurs go extinct.",
     130000000: "130 million years ago: First flowering plants.",
