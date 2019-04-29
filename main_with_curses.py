@@ -34,6 +34,9 @@ def find_date(todays_date, progress):
         return my_date.strftime("%B %d %Y"), my_date, True
     return str(round(return_date)) + " years ago", return_date, False
 
+stdscr = curses.initscr()
+curses.noecho()
+curses.curs_set(False)
 
 i = 0
 while i <= 1:
@@ -52,7 +55,7 @@ while i <= 1:
                         str(int(i * 100))
                         + "%"
                         + str(value)
-                        + "              \r"
+                        + "\r"
                     )
                     sys.stdout.write(to_p)
                     sys.stdout.flush()
@@ -67,11 +70,15 @@ while i <= 1:
                         str(int(i * 100))
                         + "%"
                         + str(value)
-                        + "              \r"
+                        + "\r"
                     )
                     sys.stdout.write(to_p)
                     sys.stdout.flush()
                     break
             time.sleep(0.03)
             i += 0.0001
-input("press enter to exit                       ")
+input("press enter to exit")
+
+curses.echo()
+curses.curs_set(True)
+curses.endwin()
