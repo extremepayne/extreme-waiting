@@ -14,10 +14,10 @@ def decimal_year_to_date(decimal_year):
     year = int(decimal_year)
     rem = decimal_year - year
     base = datetime(year, 1, 1)
-    result = base + timedelta(
+    out = base + timedelta(
         seconds=(base.replace(year=base.year + 1) - base).total_seconds() * rem
     )
-    return result
+    return out
 
 
 def find_date(todays_date, progress):
