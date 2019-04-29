@@ -84,7 +84,10 @@ try:
     #time.sleep(1)
     while i <= 1:
         to_p, result, res_type = find_date(CUR_DATE, i)
-        stdscr.addstr(5, 5, (str(int(i*100)) + "%"), curses.A_BOLD)
+        if i < 0.1:
+            stdscr.addstr(5, 5, (str(int(i*100)) + "%" + " |" + "#"*int(i*20) + " "*(20-int(i*20)) + "|"), curses.A_BOLD)
+        else:
+            stdscr.addstr(5, 5, (str(int(i*100)) + "%" + "|" + "#"*int(i*20) + " "*(20-int(i*20)) + "|"), curses.A_BOLD)
         if res_type:
             pass
         else:
