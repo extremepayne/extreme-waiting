@@ -53,14 +53,18 @@ try:
                         break
             else:
                 year_bc = abs(CUR_DATE.year - result)
+                done = False
                 for key, value in facts.facts_bc.items():
                     if key < year_bc:
                         to_p = str(value)
+                        done = True
                         break
+                if not done:
+                    to_p = "No facts for this era."
         stdscr.addstr(6, 5, (str(to_p) + " "*10), curses.A_BOLD)
         curses.doupdate()
         stdscr.refresh()
-        i+=0.01
+        i+=0.001
         time.sleep(0.03)
     stdscr.addstr(7, 5, 'Press q to close this screen', curses.A_NORMAL)
     while True:
