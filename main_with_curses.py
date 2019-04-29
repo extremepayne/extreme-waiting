@@ -1,3 +1,9 @@
+try:
+    import curses
+except ImportError:
+    print("This dosen't work on your platform. Run main.py instead.")
+    input("Press enter to exit.")
+    quit()
 from datetime import date, datetime, timedelta
 import math
 import time
