@@ -2,6 +2,7 @@ from datetime import date, datetime, timedelta
 import math
 import time
 import sys
+import facts
 
 CUR_DATE = date.today()
 # print(CUR_DATE.year)
@@ -22,17 +23,28 @@ def decimal_year_to_date(decimal_year):
 def find_date(todays_date, progress):
     """Find a date according to XKCD 1017."""
     return_date = math.exp((20.3444 * (progress ** 3)) + 3) - math.exp(3)
-    if return_date < 2000:
+    if return_date < todays_date.year:
         my_date = decimal_year_to_date(todays_date.year - return_date).date()
-        return my_date.strftime("%B %d %Y")
-    return str(round(return_date)) + " years ago"
+        return my_date.strftime("%B %d %Y"), my_date, True
+    return str(round(return_date)) + " years ago", return_date, False
 
 
 i = 0
 while i <= 1:
-    to_p = str(int(i * 100)) + "%     " + find_date(CUR_DATE, i) + "     \r"
-    sys.stdout.write(to_p)
-    sys.stdout.flush()
-    time.sleep(0.3)
-    i += 0.01
-input("press enter to exit         ")
+    to_p, result, res_type = find_date(CUR_DATE, i)
+    if res_type:
+        to_p = str(int(i*100)) +"%       " + to_p + "     \r"
+        sys.stdout.write(to_p)
+        sys.stdout.flush()
+        time.sleep(0.03)
+        i += 0.01
+    else:
+        for key, value in facts.facts.items():
+            if key > result:
+                to_p = str(int(i*100)) +"%" + str(value) + "              \r"
+                sys.stdout.write(to_p)
+                sys.stdout.flush()
+                break
+        time.sleep(0.03)
+        i += 0.001
+input("press enter to exit                     ")
