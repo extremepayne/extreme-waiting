@@ -36,7 +36,10 @@ facts_bc = {
     221: "221 BC\n\tHan dynasty begins in China.",
 }
 facts_ad = {
-    (1998, 11, 4): "Googe search engine launched.",
+    (1998, 9, 4): "Google search engine launched.",
+    (1945, 8, 15): "WWII ends with surrender of Japan.",
+    (1944, 7, 6): "D-day in WWII.",
+    (1918, 11, 11): "WWI Armistice signed.",
     (1905, 9, 26): "Einstien publishes a paper on special relativity.",
     (1687, 7, 5): "Theory of gravity propsed by Newton.",
     (1675, 11, 11): "Calculus devolped.",
