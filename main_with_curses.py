@@ -147,6 +147,7 @@ try:
                 if not done:
                     to_p = "No facts for this era."
         stdscr.addstr(5, 5, (str(to_p) + " " * 23), curses.A_BOLD)
+        stdscr.border(0)
         curses.doupdate()
         stdscr.refresh()
         if mins > 5:
