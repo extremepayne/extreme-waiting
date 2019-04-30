@@ -89,12 +89,6 @@ try:
     stdscr.keypad(1)
     stdscr.border(0)
     i = 0
-    # while i <= 1:
-    # to_p, result, res_type = find_date(CUR_DATE, i)
-    # if res_type:
-    # stdscr.addstr(5, 5, "str(i)", curses.A_BOLD)
-    # i+=0.01
-    # time.sleep(1)
     while i <= 1.0001:
         to_p, result, res_type = find_date(CUR_DATE, i)
         if i < 0.1:
@@ -128,7 +122,7 @@ try:
         if res_type:
             stdscr.addstr(6, 5, "Around this time:", curses.A_BOLD)
             for key, value in facts.facts_ad.items():
-                if date(key[0], key[1], key[2]) > result:
+                if date(key[0], key[1], key[2]) < result:
                     stdscr.addstr(7, 5, value + " " * 20, curses.A_BOLD)
                     break
         else:
