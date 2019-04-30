@@ -18,7 +18,7 @@ facts_ma = {  # Ma stands for millions of years ago
     4500000000: "4.5 billion yeras ago\n\tEarth and moon form.",
     4600000000: "4.6 billion years ago\n\tSolar system forms.",
     13400000000: "13.4 billion years ago\n\tGalaxies form.",
-    13760000000: "13.7 billion years ago\n\tUniverse forms.",
+    13860000000: "13.7 billion years ago\n\tUniverse forms.",
 }
 
 facts_bc = {
@@ -33,4 +33,11 @@ facts_bc = {
     800: "800 BC\n\tEtruscan civilization begins in Italy.",
     322: "322 BC\n\tMaurya Empire begins in India.",
     221: "221 BC\n\tHan dynasty begins in China.",
+}
+facts_ad = {
+    (5, 12, 25): "Jesus of Nazereth born.",
+    (117, 1, 1): "Greatest extent of Roman empire.",
+    (476, 1, 1): "Roman empire falls.",
+    (1099, 7, 1): "First crusade successful.",
+    (2000, 1, 1): "Second millenia AD.",
 }

@@ -1,8 +1,14 @@
-import curses
+try:
+    import curses
+except ImportError:
+    print("Your system cant run this version. Try running main.py")
+    input("Press enter to exit.")
+    quit()
 from datetime import date, datetime, timedelta
 import math
 import time
 import facts
+
 
 def decimal_year_to_date(decimal_year):
     """Change YYYY.YYYY to MM DD YYYY."""
@@ -21,12 +27,13 @@ def find_date(todays_date, progress):
     return_date = math.exp((20.3444 * (progress ** 3)) + 3) - math.exp(3)
     if return_date + 1 < todays_date.year:
         my_date = decimal_year_to_date(todays_date.year - return_date).date()
-        if my_date > date(1900, 1, 1):
+        if my_date > date(2000, 1, 1):
             return my_date.strftime("%B\t%d\t%Y"), my_date, True
-        elif my_date > date(1500, 1, 1):
+        elif my_date > date(1800, 1, 1):
             return my_date.strftime("%B\t\t%Y"), my_date, True
         return my_date.strftime("\t\t\t%Y"), my_date, True
     return str(round(return_date)) + " years ago", return_date, False
+
 
 def ask(prompt, type_=None, min_=None, max_=None, range_=None):
     """Get user input of a certain type, with range and min/max options."""
@@ -67,11 +74,12 @@ def ask(prompt, type_=None, min_=None, max_=None, range_=None):
             return ui
 
 
-
-
 mins = ask("How long are you waiting for? (minutes) ", float, 0)
-secs = mins*60
-wait_time = secs/10000
+secs = mins * 60
+if mins > 5:
+    wait_time = secs / 10000
+else:
+    wait_time = secs / 100
 CUR_DATE = date.today()
 try:
     stdscr = curses.initscr()
@@ -81,21 +89,52 @@ try:
     stdscr.keypad(1)
     stdscr.border(0)
     i = 0
-    #while i <= 1:
-        #to_p, result, res_type = find_date(CUR_DATE, i)
-        #if res_type:
-    #stdscr.addstr(5, 5, "str(i)", curses.A_BOLD)
-    #i+=0.01
-    #time.sleep(1)
-    while i <= 1:
+    # while i <= 1:
+    # to_p, result, res_type = find_date(CUR_DATE, i)
+    # if res_type:
+    # stdscr.addstr(5, 5, "str(i)", curses.A_BOLD)
+    # i+=0.01
+    # time.sleep(1)
+    while i <= 1.0001:
         to_p, result, res_type = find_date(CUR_DATE, i)
         if i < 0.1:
-            stdscr.addstr(5, 5, (str(int(i*100)) + "%" + " |" + "#"*int(i*20) + " "*(20-int(i*20)) + "|"), curses.A_BOLD)
+            stdscr.addstr(
+                4,
+                5,
+                (
+                    str(int(i * 100))
+                    + "%"
+                    + " |"
+                    + "#" * int(i * 20)
+                    + " " * (20 - int(i * 20))
+                    + "|"
+                ),
+                curses.A_BOLD,
+            )
         else:
-            stdscr.addstr(5, 5, (str(int(i*100)) + "%" + "|" + "#"*int(i*20) + " "*(20-int(i*20)) + "|"), curses.A_BOLD)
+            stdscr.addstr(
+                4,
+                5,
+                (
+                    str(int(i * 100))
+                    + "%"
+                    + "|"
+                    + "#" * int(i * 20)
+                    + " " * (20 - int(i * 20))
+                    + "|"
+                ),
+                curses.A_BOLD,
+            )
         if res_type:
-            pass
+            stdscr.addstr(6, 5, "Around this time:", curses.A_BOLD)
+            for key, value in facts.facts_ad.items():
+                if date(key[0], key[1], key[2]) > result:
+                    stdscr.addstr(7, 5, value + " " * 20, curses.A_BOLD)
+                    break
         else:
+            stdscr.addstr(
+                7, 5, "                                ", curses.A_BOLD
+            )
             if result > 8000:
                 for key, value in facts.facts_ma.items():
                     if key > result:
@@ -103,6 +142,8 @@ try:
                         break
             else:
                 year_bc = abs(CUR_DATE.year - result)
+                curses.doupdate()
+                stdscr.refresh()
                 done = False
                 for key, value in facts.facts_bc.items():
                     if key < year_bc:
@@ -111,18 +152,21 @@ try:
                         break
                 if not done:
                     to_p = "No facts for this era."
-        stdscr.addstr(6, 5, (str(to_p) + " "*23), curses.A_BOLD)
+        stdscr.addstr(5, 5, (str(to_p) + " " * 23), curses.A_BOLD)
         curses.doupdate()
         stdscr.refresh()
-        i+=0.0001
+        if mins > 5:
+            i += 0.0001
+        else:
+            i += 0.01
         time.sleep(wait_time)
-    stdscr.addstr(8, 5, 'Press q to close this screen', curses.A_NORMAL)
+    stdscr.addstr(8, 5, "Press q to close this screen", curses.A_NORMAL)
     while True:
         # stay in this loop till the user presses 'q'
         ch = stdscr.getch()
-        if ch == ord('q'):
+        if ch == ord("q"):
             break
-    
+
 finally:
     stdscr.keypad(0)
     curses.echo()
