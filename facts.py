@@ -45,6 +45,8 @@ facts_ad = {
     (1969, 7, 20): "First man on the moon.",
     (1957, 10, 4): "First man-made satelite, Sputnik 1, in orbit.",
     (1949, 10, 1): "Mao Zedong comes to power in China.",
+    (1948, 1, 30): "Mahatma Ghandi assassinated.",
+    (1947, 7, 18): "India gains independence from Britain.",
     (1945, 8, 15): "WWII ends with surrender of Japan.",
     (1944, 7, 6): "D-day in WWII.",
     (1918, 11, 11): "WWI Armistice signed.",
