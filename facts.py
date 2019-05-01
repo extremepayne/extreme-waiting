@@ -47,7 +47,6 @@ facts_ad = {
     (1776, 7, 4): "US proclaims independance from Britian.",
     (1687, 7, 5): "Theory of gravity propsed by Newton.",
     (1675, 11, 11): "Calculus devolped.",
-    (1644, 1, 1): "Ming dynasty in China begins.",
     (1368, 1, 1): "Ming dynasty in China begins.",
     (1271, 1, 1): "Yuan dynasty begins in China.",
     (1099, 7, 1): "First crusade successful.",

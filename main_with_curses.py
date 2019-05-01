@@ -81,6 +81,7 @@ if mins > 5:
 else:
     wait_time = secs / 100
 CUR_DATE = date.today()
+start_time = time.time()
 try:
     stdscr = curses.initscr()
     curses.noecho()
@@ -126,9 +127,7 @@ try:
                     stdscr.addstr(7, 5, value + " " * 20, curses.A_BOLD)
                     break
         else:
-            stdscr.addstr(
-                7, 5, "                                ", curses.A_BOLD
-            )
+            stdscr.addstr(7, 5, " " * 40, curses.A_BOLD)
             if result > 8000:
                 for key, value in facts.facts_ma.items():
                     if key > result:
@@ -146,6 +145,10 @@ try:
                         break
                 if not done:
                     to_p = "No facts for this era."
+        now = time.time()
+        stdscr.addstr(
+            2, 5, str(int((now - start_time) / 60)) + " minutes elapsed"
+        )
         stdscr.addstr(5, 5, (str(to_p) + " " * 23), curses.A_BOLD)
         stdscr.border(0)
         curses.doupdate()
