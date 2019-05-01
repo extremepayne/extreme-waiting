@@ -36,9 +36,14 @@ facts_bc = {
     221: "221 BC\n\tHan dynasty begins in China.",
 }
 facts_ad = {
+    (2017, 1, 20): "Trump becomes POTUS.",
+    (2009, 1, 20): "Obama becomes first black president of the US.",
+    (2001, 10, 7): "US invades Afganistan.",
     (2000, 1, 1): "Third millenium begins.",
     (1998, 9, 4): "Google search engine launched.",
     (1991, 1, 1): "USSR collapses, end of Soviet rule.",
+    (1969, 7, 20): "First man on the moon.",
+    (1957, 10, 4): "First man-made satelite, Sputnik 1, in orbit.",
     (1949, 10, 1): "Mao Zedong comes to power in China.",
     (1945, 8, 15): "WWII ends with surrender of Japan.",
     (1944, 7, 6): "D-day in WWII.",
