@@ -29,7 +29,7 @@ def find_date(todays_date, progress):
         my_date = decimal_year_to_date(todays_date.year - return_date).date()
         if my_date > date(2000, 1, 1):
             return my_date.strftime("%B\t%d\t%Y"), my_date, True
-        elif my_date > date(1800, 1, 1):
+        elif my_date > date(1900, 1, 1):
             return my_date.strftime("%B\t\t%Y"), my_date, True
         return my_date.strftime("\t\t\t%Y"), my_date, True
     return str(round(return_date)) + " years ago", return_date, False
