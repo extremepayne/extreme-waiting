@@ -76,7 +76,9 @@ def ask(prompt, type_=None, min_=None, max_=None, range_=None):
 
 mins = ask("How long are you waiting for? (minutes) ", float, 0)
 secs = mins * 60
-if mins > 5:
+if mins > 120:
+    wait_time = secs / 100000
+elif mins > 5:
     wait_time = secs / 10000
 else:
     wait_time = secs / 100
@@ -153,7 +155,9 @@ try:
         stdscr.border(0)
         curses.doupdate()
         stdscr.refresh()
-        if mins > 5:
+        if mins > 120:
+            i += 0.00001
+        elif mins > 5:
             i += 0.0001
         else:
             i += 0.01
