@@ -7,10 +7,12 @@
 This program takes a percentage and converts it to a date. As the percentage increases, the date goes back in time exponentially. This helps alleviate boredom caused by waiting.
 
 ## How
-Run the appropriate version of main.py. (main_with_curses if your system supports curses package, main otherwise.) Enter the amount of time you have to wait for. It will display a percent (and a progress bar, for main_with_curses) and a date and/or significant events on or near that date.
+Try running `main_with_curses.py`. If it dosen't work, you can troubleshoot with the [curses](#curses) section below. If it still dosen't work, run `main.py`.
+
+Enter the amount of time you have to wait for. It will display a percent (and a progress bar, for `main_with_curses`) and a date and/or significant events on or near that date.
 
 ### Curses
-Curses is used to interact better with the terminal and allows this project to be better about printing things out. If `main.py` says it's not supported, here are some things you can try:
+Curses is used to interact better with the terminal and allows this project to be better about printing things out. If `main_with_curses.py` says it's not supported, here are some things you can try:
 
 #### Unix
 It should always work. File an issue.
