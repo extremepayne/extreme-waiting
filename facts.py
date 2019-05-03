@@ -52,7 +52,7 @@ facts_ad = {
     (1944, 7, 6): "D-day in WWII.",
     (1918, 11, 11): "WWI Armistice signed.",
     (1905, 9, 26): "Einstien publishes a paper on special relativity.",
-    (1868, 10, 32): "Meiji era begins in Japan.",
+    (1868, 10, 23): "Meiji era begins in Japan.",
     (1776, 7, 4): "US proclaims independance from Britian.",
     (1687, 7, 5): "Theory of gravity propsed by Newton.",
     (1675, 11, 11): "Calculus devolped.",
