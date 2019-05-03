@@ -1,7 +1,7 @@
 # extreme-waiting
 > Make waiting an extreme sport! Swoosh!
 
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT) ![GitHub top language](https://img.shields.io/github/languages/top/extremepayne/extreme-waiting.svg) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)
 
 ## What
 This program takes a percentage and converts it to a date. As the percentage increases, the date goes back in time exponentially. This helps alleviate boredom caused by waiting.
