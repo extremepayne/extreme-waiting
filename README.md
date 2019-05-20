@@ -6,6 +6,8 @@
 ## What
 This program takes a percentage and converts it to a date. As the percentage increases, the date goes back in time exponentially. This helps alleviate boredom caused by waiting.
 
+![example image](images/example.JPG)
+
 ## How
 Try running `main_with_curses.py`. If it dosen't work, you can troubleshoot with the [curses](#curses) section below. If it still dosen't work, run `main.py`.
 
